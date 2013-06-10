@@ -13,4 +13,7 @@ results
 
 npm-debug.log
 
+# npm will get these for you
 node_modules
+# Let Stylus be useful
+public/stylesheets/*.css

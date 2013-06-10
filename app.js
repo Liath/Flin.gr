@@ -1,4 +1,6 @@
 
+"use strict";
+
 /**
  * Module dependencies.
  */
@@ -8,7 +10,9 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , redis = require("redis")
-  , redis-client = redis.createClient();
+  , redisClient = redis.createClient()
+  , stylus = require('stylus')
+  , nib = require('nib');
 
 
 var app = express();
@@ -22,8 +26,8 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
-app.use(require('stylus').middleware(
-  { "src" : __dirname + '/public',
+app.use(stylus.middleware(
+  { "src" : __dirname + '/public'
   , "compile" : function(str, path) {
       return stylus(str)
         .set('filename', path)
@@ -40,7 +44,7 @@ if ('development' == app.get('env')) {
 }
 
 //Include the routes
-require('./lib/routes/index')(app);
+require('./routes/index')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
