@@ -1,7 +1,29 @@
 doctype 5
-html
+html(lang='en')
   head
-    title= title
+    //- Perhaps make the title an array of random "catch" phrases? (Pun intended. :3)
+    title Flin.gr | Shove it!
+    meta(name='viewport',content='width=device-width,initial-scale=1.0')
+    link(rel='stylesheet', href='/css/bootstrap.css')
+    link(rel='stylesheet', href='/css/bootstrap-responsive.css')
+    //- link(rel='stylesheet', href='/css/bootstrap.min.css')
+    //- link(rel='stylesheet', href='/css/bootstrap-responsive.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js')
+    script(src='/js/bootstrap.min.js')
   body
-    block content
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container
+          span.brand Flin.gr
+          span#title-caption Ah, push it!
+    #content.container
+      .row-fluid
+        .span12
+          #spacer.clearfix
+      block content
+    #footer.container
+      .row-fluid
+        .span12
+          | Static Footer Poop

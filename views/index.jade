@@ -1,5 +1,36 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .row-fluid
+    .span2
+    .span4
+      .pills
+        .row-fluid.pill-heading
+          .span12
+            span.pill-label Send File
+        .row-fluid.pill-body
+          .span12
+            a.btn-block.btn-primary.span12 Click to Begin
+    .span4
+      .pills
+        .row-fluid.pill-heading
+          .span12
+            span.pill-label Recieve File
+        .row-fluid.pill-body
+          .span12
+            input.span12(required,placeholder='Enter Sender ID')
+  hr.bs-docs-separator
+  .row-fluid
+    .span2
+    .span8
+      p
+        :markdown
+          Basically, we need a ridiculously long explanation here. By which I mean a bunch of fancy pictures and buzzwords capriciously slathered about at length.
+          
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et mauris in erat vestibulum sollicitudin. Phasellus luctus malesuada dui, vel viverra orci. Aliquam ac bibendum nisi. Vivamus dictum nunc ut turpis scelerisque viverra. Mauris aliquam egestas massa at rutrum. Morbi ac tincidunt leo. Aenean vitae ligula sit amet velit imperdiet pharetra ac ut urna. Mauris vehicula, erat at faucibus tempus, ligula odio pharetra nunc, non luctus justo elit nec velit. Etiam nulla mauris, luctus vel orci a, varius cursus justo. In in lobortis orci, sodales lacinia neque. Mauris pulvinar augue eget sodales mattis.
+
+          Morbi interdum imperdiet tincidunt. Nunc a congue ligula, consectetur accumsan magna. Praesent vulputate semper eros, eget tempus odio. Donec eleifend magna turpis, nec feugiat massa pretium vel. Duis nulla libero, gravida at eros id, ornare malesuada neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam urna nisi, faucibus ut rutrum in, gravida sed nibh. Proin eu lacus velit. Sed sit amet mi et nunc luctus vulputate. Cras varius dapibus massa varius molestie. Proin eleifend ac mi quis ultricies. Sed fermentum neque in fringilla dapibus.
+
+          Duis id sapien a orci interdum imperdiet. Maecenas a molestie metus. Curabitur non posuere elit, sit amet convallis sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam nisi ipsum, lacinia a rutrum id, rhoncus sit amet ante. Nulla in metus ut libero pharetra euismod quis at ligula. Suspendisse in lorem massa. Integer ut porttitor sapien.
+
+          Etiam at condimentum nulla. Aenean sit amet pellentesque odio. Vivamus non laoreet lorem. Donec cursus tellus vitae massa facilisis, nec cursus augue condimentum. Morbi a placerat ipsum, auctor tempus tortor. Integer sem urna, varius ac nisi vel, interdum malesuada eros. Vivamus et metus sapien. Pellentesque pellentesque in massa a consectetur.
