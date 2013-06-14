@@ -1,4 +1,6 @@
 extends layout
+block css
+  link(rel='stylesheet', href='/stylesheets/index.css')
 
 block content
   .row-fluid
@@ -7,7 +9,9 @@ block content
       .pills
         .row-fluid.pill-heading
           .span12
-            span.pill-label Send File
+            span.pill-label 
+              i.icon-arrow-up.icon-white
+              | Send File
         .row-fluid.pill-body
           .span12
             a.btn-block.btn-primary.span12 Click to Begin
@@ -15,22 +19,31 @@ block content
       .pills
         .row-fluid.pill-heading
           .span12
-            span.pill-label Recieve File
+            span.pill-label 
+              i.icon-arrow-down.icon-white
+              | Recieve File
         .row-fluid.pill-body
-          .span12
-            input.span12(required,placeholder='Enter Sender ID')
+          #input-holder.span12
+            form.input-append.span12(method="GET", action="/get/")
+              input.span12(required,placeholder='Enter Sender ID')
+              button.btn.btn-small(type='submit')
+                i.icon-white.icon-search
   hr.bs-docs-separator
-  .row-fluid
-    .span2
-    .span8
-      p
-        :markdown
-          Basically, we need a ridiculously long explanation here. By which I mean a bunch of fancy pictures and buzzwords capriciously slathered about at length.
-          
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et mauris in erat vestibulum sollicitudin. Phasellus luctus malesuada dui, vel viverra orci. Aliquam ac bibendum nisi. Vivamus dictum nunc ut turpis scelerisque viverra. Mauris aliquam egestas massa at rutrum. Morbi ac tincidunt leo. Aenean vitae ligula sit amet velit imperdiet pharetra ac ut urna. Mauris vehicula, erat at faucibus tempus, ligula odio pharetra nunc, non luctus justo elit nec velit. Etiam nulla mauris, luctus vel orci a, varius cursus justo. In in lobortis orci, sodales lacinia neque. Mauris pulvinar augue eget sodales mattis.
+  #info.row-fluid
+    .span4
+      h2 What?
+      :markdown
+        In simple terms, Flin.gr is a nifty app that lets you send files to people securely and fast!
+        Or in more technical terms; we facilitate encrypted peer to peer file sharing and communication with full NAT traversal between two browsers.
+        The only people who see your data are your recipients and you, we couldn't if we wanted to! This means that even if we were subpeona'd or hacked, your information is never at risk.
 
-          Morbi interdum imperdiet tincidunt. Nunc a congue ligula, consectetur accumsan magna. Praesent vulputate semper eros, eget tempus odio. Donec eleifend magna turpis, nec feugiat massa pretium vel. Duis nulla libero, gravida at eros id, ornare malesuada neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam urna nisi, faucibus ut rutrum in, gravida sed nibh. Proin eu lacus velit. Sed sit amet mi et nunc luctus vulputate. Cras varius dapibus massa varius molestie. Proin eleifend ac mi quis ultricies. Sed fermentum neque in fringilla dapibus.
-
-          Duis id sapien a orci interdum imperdiet. Maecenas a molestie metus. Curabitur non posuere elit, sit amet convallis sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam nisi ipsum, lacinia a rutrum id, rhoncus sit amet ante. Nulla in metus ut libero pharetra euismod quis at ligula. Suspendisse in lorem massa. Integer ut porttitor sapien.
-
-          Etiam at condimentum nulla. Aenean sit amet pellentesque odio. Vivamus non laoreet lorem. Donec cursus tellus vitae massa facilisis, nec cursus augue condimentum. Morbi a placerat ipsum, auctor tempus tortor. Integer sem urna, varius ac nisi vel, interdum malesuada eros. Vivamus et metus sapien. Pellentesque pellentesque in massa a consectetur.
+    .span4
+      h2 Why?
+      :markdown
+        MegaUpload founder and CEO Kim Dotcom is proof that there needs to be a change in the way we share files. File dumps, like Mega and RapidShare, put their owners at risk. We don't want to go to jail! But sharing is the back bone of internet culture and with scary things like the Patriot Act and that NSA snooping blunder happening we need to find new way to protect ourselves!
+    .span4
+      h2 How?
+      span#last-paragraph
+      :markdown
+        We use a combination of cutting edge technology to make all this happen. The sessions between users happen over a relatively new technology called WebRTC(It was published by Google in May, 2011) which has encryption (DTLS-SRTP) and can travel through NAT/Firewalls (Via STUN/TURN). We use these to provide a seamless file delivery system between users.
+        

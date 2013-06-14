@@ -1,15 +1,6 @@
-@import 'nib'
-
-body-bg-c = #F2E9E1
-header-bg-c = #CBE868
-title-c = #FFF
-title-hover-c = #F2E9E1
-title-caption-c = #1C140D
-content-bg-c = #FFF
-content-border-c = #CBE868
-footer-bg-c = #1C140D
-footer-c = #CBE86B
-
+@import 'colors'
+html
+  overflow-y:scroll
 body
   background-color: body-bg-c
 
@@ -55,53 +46,3 @@ body
 
 #footer .row-fluid .span12
   margin:10px
-  
-.pills
-  background-color:title-c
-  color:footer-c
-  border-radius: 4px
-  border-style: solid
-  border-width:1px
-  border-color:title-bg-c
-  overflow:hidden
-.pill-heading
-  background-color:footer-c
-  color:title-c
-  text-align:center
-  font-size:16pt
-.pill-label
-  vertical-align:-4px
-.pill-body
-  background-color:footer-bg-c
-  color:footer-c
-.pills .pill-body a
-  text-align:center
-  margin:0
-  cursor:pointer
-  line-height: 30px;
-  vertical-align: middle;
-.pills .pill-body a:hover
-    text-decoration:none
-.pills .btn-primary:hover, .pills .btn-primary:focus, .pills .btn-primary:active, .pills .btn-primary.active, .pills .btn-primary.disabled, .pills .btn-primary[disabled]
-  color: #fff
-  background-color: #1C140D
-.pills .btn-primary, .pills input
-  color: #fff
-  cursor:pointer
-  text-align:center
-  text-shadow: 0 -1px 0 rgba(0,0,0,0.25)
-  background-color: #006dcc
-  background-repeat: repeat-x
-  border: none
-  background-image: linear-gradient(top,lighten(#1C140D,15),#1C140D)
-
-
-// Display size fixes
-@media (max-width: 979px)
-  .navbar-fixed-top
-    margin-bottom:0
-  #spacer
-    min-height:20px
-  .pills
-    margin: 15px
- 

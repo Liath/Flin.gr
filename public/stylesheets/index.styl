@@ -1,0 +1,76 @@
+@import 'nib'
+@import 'colors'
+
+//Pills
+.pills
+  background-color:title-c
+  color:footer-c
+  border-radius: 4px
+  border-style: solid
+  border-width:1px
+  border-color:title-bg-c
+  overflow:hidden
+.pill-heading
+  background-color:footer-c
+  color:title-c
+  text-align:center
+  font-size:16pt
+.pill-label
+  vertical-align:-4px
+.pill-label i
+  vertical-align:0px
+.pill-body
+  background-color:footer-bg-c
+  color:footer-c
+.pills .pill-body a
+  text-align:center
+  margin:0
+  cursor:pointer
+  line-height: 30px;
+  vertical-align: middle;
+.pills .pill-body a:hover
+    text-decoration:none
+.pills .btn-primary:hover, .pills .btn-primary:focus, .pills .btn-primary:active, .pills .btn-primary.active, .pills .btn-primary.disabled, .pills .btn-primary[disabled]
+  color: #fff
+  background-color: #1C140D
+.pills .btn-primary, #input-holder
+  color: #fff
+  cursor:pointer
+  text-align:center
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.25)
+  background-color: #006dcc
+  background-repeat: repeat-x
+  border: none
+  background-image: linear-gradient(top,lighten(#1C140D,15),#1C140D)
+#input-holder *
+  margin: 0
+  line-height:30px
+#input-holder input, #input-holder button
+  margin: 0
+  height:30px
+  border: none
+  background:transparent
+  box-shadow:none
+  text-align:center
+  color:white
+#input-holder button
+  position:absolute
+  margin-left:-33px
+  
+//Info
+#info
+  color:footer-bg-c
+  margin-left:20px
+  margin-right:20px
+  
+// Display size fixes
+@media (max-width: 979px)
+  .navbar-fixed-top
+    margin-bottom:0
+  #spacer
+    min-height:20px
+  .pills
+    margin: 15px
+@media (max-width: 767px)
+  .input-prepend input, .input-append input, .input-prepend input[class*="span"], .input-append input[class*="span"]
+    width:100%
