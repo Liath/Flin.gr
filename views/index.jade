@@ -14,7 +14,7 @@ block content
               | Send File
         .row-fluid.pill-body
           .span12
-            a.btn-block.btn-primary.span12 Click to Begin
+            a.btn-block.btn-primary.span12(href='/send') Click to Begin
     .span4
       .pills
         .row-fluid.pill-heading
@@ -43,7 +43,8 @@ block content
         MegaUpload founder and CEO Kim Dotcom is proof that there needs to be a change in the way we share files. File dumps, like Mega and RapidShare, put their owners at risk. We don't want to go to jail! But sharing is the back bone of internet culture and with scary things like the Patriot Act and that NSA snooping blunder happening we need to find new way to protect ourselves!
     .span4
       h2 How?
-      span#last-paragraph
+      span
       :markdown
         We use a combination of cutting edge technology to make all this happen. The sessions between users happen over a relatively new technology called WebRTC(It was published by Google in May, 2011) which has encryption (DTLS-SRTP) and can travel through NAT/Firewalls (Via STUN/TURN). We use these to provide a seamless file delivery system between users.
-        
+  hr.bs-docs-separator
+    
