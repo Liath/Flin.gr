@@ -1,3 +1,48 @@
 extends layout
+block css
+  link(rel='stylesheet', href='/stylesheets/channel.css')
+
 block content
-  h1= 'Channel ID: '+id
+  .row-fluid
+      #chat.span12
+        ='Welcome to channel ID: '+cid
+        br
+        ='Your name is now "'+uid+'"!'
+        br
+        | Grat's on getting such a unique and interesting name!
+        br
+      input#cli.span12(placeholder="Type a message here")
+
+block script
+  script(src='/js/DataChannel.js')
+  script.
+    "use strict";
+    
+    var channel = new DataChannel("#{cid}",{
+      userid: "#{uid}"
+    });
+    channel.onmessage = function(message, userid) {
+      $('#chat').append(userid+': '+message+'<br />');
+    };
+    channel.onFileProgress = function (packets) {
+        $('#chat').append(packets.remaining + ' packets remaining.', fileProgress);
+        if (packets.sent) $('#chat').append(packets.sent + ' packets sent.', fileProgress);
+        if (packets.received) $('#chat').append(packets.received + ' packets received.', fileProgress);
+    };
+
+    channel.onFileSent = function (file) {
+        $('#chat').append(file.name + ' sent.', fileProgress);
+    };
+
+    channel.onFileReceived = function (fileName) {
+        $('#chat').append(fileName + ' received.', fileProgress);
+    };
+
+    $('#cli').keypress(function(e){
+      if(e.which == 13){
+          var m = $('#cli').val();
+          channel.send(m)
+          $('#chat').append('You: '+m+'<br />');
+          $('#cli').val('')
+      }
+    });

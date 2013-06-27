@@ -31,12 +31,11 @@ html(lang='en')
     .navbar.navbar-inverse.navbar-fixed-top
       .navbar-inner
         .container
-          span.brand Flin.gr
+          a.brand(href="/") Flin.gr
           span#title-caption Ah, push it!
     #content.container
       .row-fluid
-        .span12
-          #spacer.clearfix
+        #spacer.clearfix
       block content
     #footer.container
       .row-fluid
@@ -54,5 +53,6 @@ html(lang='en')
       g.src = '//www.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g, s);
     })(document, 'script');
+  block script
 
   script(src='/js/bootstrap.min.js')
