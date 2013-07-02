@@ -4,14 +4,25 @@ block css
 
 block content
   .row-fluid
-      #chat.span12
-        ='Welcome to channel ID: '+cid
-        br
-        ='Your name is now "'+uid+'"!'
-        br
-        | Grat's on getting such a unique and interesting name!
-        br
-      input#cli.span12(placeholder="Type a message here")
+      .container
+        .row-fluid
+          #chat.span12
+            ='Welcome to channel ID: '+cid
+            br
+            ='Your name is now "'+uid+'"!'
+            br
+            | Grat's on getting such a unique and interesting name!
+            br
+        .row-fluid
+          input#cli.span11(placeholder="Type a message here")
+          span#f-btn-box.span1
+            button#f-btn.btn.btn-primary(title="Upload a File!",onclick="$('#f').click()")
+              i.icon-white.icon-folder-open
+          input#f(type="file",title="")
+        .row-fluid
+          #progress.progress.progress-striped(active)
+            span#progress-text
+            #file-progress.bar.span12
 
 block script
   script(src='/js/DataChannel.js')
@@ -22,27 +33,43 @@ block script
       userid: "#{uid}"
     });
     channel.onmessage = function(message, userid) {
-      $('#chat').append(userid+': '+message+'<br />');
+      addChat(userid+': '+message);
     };
     channel.onFileProgress = function (packets) {
-        $('#chat').append(packets.remaining + ' packets remaining.', fileProgress);
-        if (packets.sent) $('#chat').append(packets.sent + ' packets sent.', fileProgress);
-        if (packets.received) $('#chat').append(packets.received + ' packets received.', fileProgress);
+        $('#progress').animate({height:'20px'},500);
+        var p = packets.sent || packets.received;
+        $('#file-progress').css('width', ((p/packets.length)*100)+'%');
+        $('#progress-text').html(p+'/'+packets.length);
     };
 
     channel.onFileSent = function (file) {
-        $('#chat').append(file.name + ' sent.', fileProgress);
+        addChat(file.name + ' sent.', fileProgress);
     };
 
     channel.onFileReceived = function (fileName) {
-        $('#chat').append(fileName + ' received.', fileProgress);
+        addChat(fileName + ' received.', fileProgress);
     };
 
+    var fileProgress = document.getElementById('file-progress');
+    
     $('#cli').keypress(function(e){
       if(e.which == 13){
           var m = $('#cli').val();
           channel.send(m)
-          $('#chat').append('You: '+m+'<br />');
+          addChat('You: '+m);
           $('#cli').val('')
       }
     });
+    
+    var addChat = function(m,p) {
+      var div = document.createElement('div');
+      div.innerHTML = m;
+      
+      if (!p) $('#chat').append(m+'<br />');
+      else $('#file-progress').html(m)
+      
+      div.tabIndex = 0;
+      div.focus();
+
+      $('#chat').focus();
+    }
