@@ -28,7 +28,10 @@ block script
   script(src='/js/DataChannel.js')
   script.
     "use strict";
-    
+
+    $('#f').on('change', function(){
+      channel.send($('#f')[0].files[0]);
+    });    
     var channel = new DataChannel("#{cid}",{
       userid: "#{uid}"
     });
@@ -43,10 +46,12 @@ block script
     };
 
     channel.onFileSent = function (file) {
+       $('#progress-text').html('');
         addChat(file.name + ' sent.', fileProgress);
     };
 
     channel.onFileReceived = function (fileName) {
+        $('#progress-text').html('');
         addChat(fileName + ' received.', fileProgress);
     };
 
