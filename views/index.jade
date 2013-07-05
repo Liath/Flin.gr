@@ -14,7 +14,7 @@ block content
               | Send File
         .row-fluid.pill-body
           .span12
-            a.btn-block.btn-primary.span12(href='/send') Click to Begin
+            a.btn-block.btn-primary.span12(href='/channel') Click to Begin
     .span4
       .pills
         .row-fluid.pill-heading
@@ -24,8 +24,8 @@ block content
               | Recieve File
         .row-fluid.pill-body
           #input-holder.span12
-            form.input-append.span12(method="GET", action="/get/")
-              input.span12(required,placeholder='Enter Sender ID')
+            form.input-append.span12(method="GET", action="/channel/")
+              input.span12(required,placeholder='Enter Sender ID',name="c")
               button.btn.btn-small(type='submit')
                 i.icon-white.icon-search
   hr.bs-docs-separator

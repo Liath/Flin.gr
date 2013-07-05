@@ -9,15 +9,19 @@ module.exports = function(app){
     app.get('/', function(req, res){
       res.render('index', { title: 'Express' });
     });
-    app.get('/send/:id', function(req, res){
+    app.get('/channel/:id', function(req, res){
       var id = req.params.id.replace(/\W/g,'');
       res.render('channel', {
         cid : id,
         uid: idGen()
       });
     });
-    app.get(/\/(send|send\/)/, function(req, res){
-      res.redirect('/send/'+idGen());
+    app.get(/^\/(channel|channel\/)/, function(req, res){
+      if (req.param('c') != null) {
+        res.redirect('/channel/'+req.param('c'));
+      } else {
+        res.redirect('/channel/'+idGen());
+      }
     });
     //Post routes
     //require('./post')(app);

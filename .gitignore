@@ -17,3 +17,5 @@ npm-debug.log
 node_modules
 # Let Stylus be useful
 public/stylesheets/*.css
+#Private stuff, with ponies and yeah...
+notes.txt
