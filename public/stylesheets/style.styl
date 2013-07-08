@@ -10,6 +10,7 @@ body
   border-bottom-width:4px
   border-color: darken(header-bg-c,15)
   background-color:header-bg-c
+  z-index:3
 .navbar-inverse .navbar-inner .container
   padding:30px
 .navbar-inverse .brand
@@ -26,12 +27,13 @@ body
 #content
   background-color:content-bg-c
   background-position:center -150px
-  min-height:262px
+  min-height:262px  
 
 #spacer
   min-height:100px
   
 #content, #footer
+  z-index:2
   border-width:0px
   border-style: solid
   border-left-width:2px
@@ -43,6 +45,18 @@ body
   text-align:center
   background-color:footer-bg-c
   color:footer-c
+  font-size:8pt
+  line-height:30px
 
 #footer .row-fluid .span12
   margin:10px
+
+#background
+  display:none
+  z-index:1
+  position: absolute;
+  bottom: 0px;
+  height: 110px;
+  width: 100%;
+  background: #addd00;
+  background: -webkit-linear-gradient(top,  #addd00 0%,#addd00 17%,#017000 100%);
