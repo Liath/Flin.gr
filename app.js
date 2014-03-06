@@ -1,19 +1,28 @@
 
 "use strict";
 
-/**
- * Module dependencies.
- */
+var options = require('./settings.js');
 
 var express = require('express')
   , routes = require('./routes')
   , http = require('http')
   , path = require('path')
-  , redis = require("redis")
-  , redisClient = redis.createClient()
   , stylus = require('stylus')
-  , nib = require('nib');
+  , nib = require('nib')
+  , redis = require("redis");
 
+if (process.env.REDISTOGO_URL) {
+  var url = require('url'),
+      redisUrl = url.parse(process.env.REDISTOGO_URL),
+      redisAuth = redisUrl.auth.split(':'),
+      redisClient = redis.createClient(redisUrl.port, redisUrl.hostname);
+
+  redisClient.auth(redisAuth[1],function(){
+#    redisClient.select(redisAuth[0]);
+  });
+} else {
+  var redisClient = redis.createClient();
+}
 
 var app = express();
 
