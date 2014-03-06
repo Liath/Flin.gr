@@ -18,7 +18,7 @@ if (process.env.REDISTOGO_URL) {
       redisClient = redis.createClient(redisUrl.port, redisUrl.hostname);
 
   redisClient.auth(redisAuth[1],function(){
-#    redisClient.select(redisAuth[0]);
+//    redisClient.select(redisAuth[0]);
   });
 } else {
   var redisClient = redis.createClient();
