@@ -1,4 +1,3 @@
-
 "use strict";
 
 var express = require('express')
@@ -7,7 +6,11 @@ var express = require('express')
   , path = require('path')
   , stylus = require('stylus')
   , nib = require('nib')
-  , redis = require("redis");
+  , redis = require('redis')
+  , favicon = require('serve-favicon')
+  , morgan = require('morgan')
+//  , bodyParser = require('body-parser')
+//  , methodOverride = require('method-override")
 
 if (process.env.REDISTOGO_URL) {
   var url = require('url'),
@@ -28,11 +31,12 @@ var app = express();
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(app.router);
+app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(morgan('dev', {
+  skip: function (req, res) { return res.statusCode < 400 }
+}));
+// app.use(bodyParser.urlencoded({extended: false}));
+// app.use(express.methodOverride());
 app.use(stylus.middleware(
   { "src" : __dirname + '/public'
   , "compile" : function(str, path) {
@@ -47,7 +51,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+//  app.use(express.errorHandler());
 }
 
 //Include the routes

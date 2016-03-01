@@ -16,7 +16,11 @@
     "nib": "*",
     "redis": "*",
     "hiredis": "*",
-    "marked": "*"
+    "marked": "*",
+    "serve-favicon": "*",
+    "morgan": "*",
+    "body-parser": "*",
+    "method-override": "*"
   },
   "engines": {
     "node": "5.7.x"
