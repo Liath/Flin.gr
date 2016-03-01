@@ -10,11 +10,11 @@
     "url": "https://github.com/Liath/Flin.gr.git"
   },
   "dependencies": {
-    "express": "3.2.6",
+    "express": "*",
     "jade": "*",
     "stylus": "*",
     "nib": "*",
-    "canvas": "^1.1.3",
+    "canvas": "*",
     "redis": "*",
     "hiredis": "*",
     "marked": "*"
