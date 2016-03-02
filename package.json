@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test" : "mocha -R all tests/all.js"
   },
   "repository": {
     "type": "git",
@@ -16,11 +17,15 @@
     "nib": "*",
     "redis": "*",
     "hiredis": "*",
-    "marked": "*",
+    "jstransformer-marked": "*",
     "serve-favicon": "*",
     "morgan": "*",
     "body-parser": "*",
     "method-override": "*"
+  },
+  "devDependencies": {
+    "supertest": "*",
+    "mocha": "*"
   },
   "engines": {
     "node": "5.7.x"
