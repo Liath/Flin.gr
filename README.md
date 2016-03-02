@@ -1,15 +1,9 @@
-Flin.gr
+Flin.gr - https://flin.gr/
 ======
+Sharing is caring! - [ ![Codeship Status for Liath/Flin.gr](https://codeship.com/projects/77a953a0-c2af-0133-1274-3eae4e891205/status?branch=master)](https://codeship.com/projects/137849)
 
-http://flin.gr/
-Sharing is caring!
+A simple p2p filesharing app that leverages WebRTC (with STUN/TURN) to send files and chat over encrypted channels to prevent eavesdropping and censorship.
 
-Requirements
-======
-Node.js >= v0.10.10
-libcairo2-dev
-pkg-config
-g++
 
 Unless noted otherwise, all of my code in this project shall be licensed as follows:
 
