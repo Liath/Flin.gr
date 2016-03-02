@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "test" : "mocha -R all tests/all.js"
+    "test" : "mocha -R spec tests/all.js"
   },
   "repository": {
     "type": "git",
